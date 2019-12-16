@@ -4,19 +4,33 @@ class Container1 extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      stateprop1: "Our Initial State"
+      stateprop1: "Our Initial State",
+      stateprop2: 5
     }
   }
 
   changeState = () => {
-    this.setState({ stateprop1: "New State" })
+    // Method 1 of updating state
+    this.setState((prevState, props) => ({
+      stateprop2: prevState.stateprop2 + 1
+    }))
+
+    // Method 2 of updating state
+    this.setState({ stateprop2: this.state.stateprop2 + 1 })
   }
 
   render() {
     return (
       <div>
-        {this.props.nickname},
-        {this.state.stateprop1}
+        <p>
+          nickname: {this.props.nickname}
+        </p>
+        <p>
+          stateprop1: {this.state.stateprop1}
+        </p>
+        <p>
+          stateprop2: {this.state.stateprop2}
+        </p>
         <button onClick={() => this.changeState()}>Change State</button>
       </div>
     )
