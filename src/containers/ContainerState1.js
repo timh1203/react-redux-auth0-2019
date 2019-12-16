@@ -9,16 +9,6 @@ class Container1 extends Component {
     }
   }
 
-  changeState = () => {
-    // Method 1 of updating state
-    this.setState((prevState, props) => ({
-      stateprop2: prevState.stateprop2 + 1
-    }))
-
-    // Method 2 of updating state
-    this.setState({ stateprop2: this.state.stateprop2 + 1 })
-  }
-
   render() {
     return (
       <div>
@@ -31,7 +21,6 @@ class Container1 extends Component {
         <p>
           stateprop2: {this.state.stateprop2}
         </p>
-        <button onClick={() => this.changeState()}>Change State</button>
       </div>
     )
   }
