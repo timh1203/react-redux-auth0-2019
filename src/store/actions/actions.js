@@ -10,13 +10,13 @@ export const FAILURE = {
 
 export const success = () => {
   return (
-    ACTION_TYPES.SUCCESS
+    { type: ACTION_TYPES.SUCCESS }
   )
 }
 
 export const failure = () => {
   return (
-    ACTION_TYPES.FAILURE
+    { type: ACTION_TYPES.FAILURE }
   )
 }
 

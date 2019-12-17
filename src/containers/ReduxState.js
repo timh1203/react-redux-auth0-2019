@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import * as ACTION_TYPES from '../store/actions/action.types'
 import * as ACTIONS from '../store/actions/actions'
 import { connect } from 'react-redux'
 
@@ -27,8 +26,8 @@ class ReduxState extends Component {
 function mapStateToProps(state) {
   return {
     state,
-    stateprop1: state.stateprop1,
-    stateUserText: state.user_text,
+    stateprop1: state.statusReducers.stateprop1,
+    stateUserText: state.userReducers.user_text,
   }
 }
 

@@ -1,11 +1,10 @@
 import * as ACTION_TYPES from '../actions/action.types'
 
 const initialState = {
-  stateprop1: false,
-  user_text: ''
+  stateprop1: false
 }
 
-const rootReducer = (state = initialState, action) => {
+const statusReducers = (state = initialState, action) => {
   switch (action.type) {
     case ACTION_TYPES.SUCCESS:
       return {
@@ -17,14 +16,9 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         stateprop1: false
       }
-    case ACTION_TYPES.USER_INPUT:
-      return {
-        ...state,
-        user_text: action.payload
-      }
     default:
       return state
   }
 }
 
-export default rootReducer
+export default statusReducers
