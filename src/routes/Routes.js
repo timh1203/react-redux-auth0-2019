@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Router, Route, Switch } from 'react-router'
 
-import Header from './containers/Header'
-import ContainerState1 from './containers/ContainerState1'
-import ReactRouter1 from './functional/ReactRouter1'
-import history from './utils/history'
+import Header from './Header'
+import ContainerState1 from '../containers/ContainerState1'
+import ReactRouter1 from '../functional/ReactRouter1'
+import history from './history'
 
 class Routes extends Component {
   render() {
