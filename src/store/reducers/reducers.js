@@ -1,4 +1,4 @@
-import * as ACTION_TYPES from '../actions/actions.types'
+import * as ACTION_TYPES from '../actions/action.types'
 
 const initialState = {
   stateprop1: false
