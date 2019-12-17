@@ -7,3 +7,15 @@ export const SUCCESS = {
 export const FAILURE = {
   type: ACTION_TYPES.FAILURE
 }
+
+export const success = () => {
+  return (
+    ACTION_TYPES.SUCCESS
+  )
+}
+
+export const failure = () => {
+  return (
+    ACTION_TYPES.FAILURE
+  )
+}
