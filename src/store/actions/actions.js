@@ -19,3 +19,10 @@ export const failure = () => {
     ACTION_TYPES.FAILURE
   )
 }
+
+export const user_input = (payload) => {
+  return {
+    type: ACTION_TYPES.USER_INPUT,
+    payload
+  }
+}
