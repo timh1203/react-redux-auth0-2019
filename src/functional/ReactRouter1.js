@@ -2,7 +2,7 @@ import React from 'react'
 
 const ReactRouter1 = props => (
   <div>
-    ReactRouter1
+    ReactRouter {props.match.params.id}
     {console.log(props)}
   </div>
 )
