@@ -1,11 +1,11 @@
 import React from 'react';
 import './app.css'
-import ReduxState from './containers/ReduxState'
+import Routes from './routes'
 
 function App() {
   return (
     <div className="App">
-      <ReduxState />
+      <Routes />
     </div>
   );
 }

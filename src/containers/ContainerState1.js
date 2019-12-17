@@ -12,6 +12,7 @@ class Container1 extends Component {
   render() {
     return (
       <div>
+        <p>Container State 1</p>
         <p>
           nickname: {this.props.nickname}
         </p>
