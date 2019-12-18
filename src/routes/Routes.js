@@ -1,10 +1,13 @@
+// PACKAGE IMPORTS
 import React, { Component } from 'react'
 import { Router, Route, Switch } from 'react-router'
 
+// LOCAL IMPORTS
 import Header from './Header'
 import Auth0 from '../containers/Auth0'
 import ReactRouter1 from '../functional/ReactRouter1'
 import Callback from '../auth/Callback'
+import Authcheck from '../auth/Authcheck'
 import history from './history'
 import auth0 from '../auth/auth'
 
@@ -29,6 +32,7 @@ class Routes extends Component {
             <Header />
             <Switch>
               <Route exact path="/" render={(props) => <Auth0 {...props} auth={auth} />} />
+              <Route exact path="/authcheck" render={(props) => <Authcheck {...props} auth={auth} />} />
               <Route path="/callback" render={(props) => { handleAuth(props); return <Callback />}} />
               <Route path="/reactrouter/:id" render={(props) => <ReactRouter1 {...props} />} />
               {/* <Route path="/reactrouter2" component={ReactRouter2} />

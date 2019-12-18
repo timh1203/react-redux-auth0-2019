@@ -1,4 +1,5 @@
 import auth0 from 'auth0-js'
+import history from '../routes/history'
 
 class Auth {
   auth0 = new auth0.WebAuth({
@@ -17,14 +18,20 @@ class Auth {
     this.auth0.parseHash((err, authResult) => {
       if (authResult) {
         let expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime())
-        localStorage.setItem('expiresAt', expiresAt)
+        localStorage.setItem('expires_at', expiresAt)
         localStorage.setItem('access_token', authResult.accessToken)
         localStorage.setItem('id_token', authResult.idToken)
+        setTimeout(() => { history.replace('/authcheck') }, 200)
       }
       else {
         console.error(err)
       }
     })
+  }
+
+  isAuthenticated = () => {
+    let expiresAt = JSON.parse(localStorage.getItem('expires_at'))
+    return new Date().getTime() < expiresAt
   }
 
   logout = () => {
