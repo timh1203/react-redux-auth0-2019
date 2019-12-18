@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
-import Auth from '../auth/auth'
 
-const auth = new Auth()
-
-export default class Auth0 extends Component {
+class Auth0 extends Component {
   render() {
     return (
       <div>
-        <button onClick={() => auth.login()}>Login</button>
-        <button onClick={() => auth.logout()}>Logout</button>
+        <button onClick={() => this.props.auth.login()}>Login</button>
+        <button onClick={() => this.props.auth.logout()}>Logout</button>
       </div>
     )
   }
 }
+
+export default Auth0
