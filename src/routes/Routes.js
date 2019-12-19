@@ -39,7 +39,7 @@ class Routes extends Component {
       <div>
         <Router history={history}>
           <div>
-            <Header />
+            <Header auth={auth} />
             <Switch>
               <Route exact path="/" render={(props) => <Auth0 {...props} auth={auth} />} />
               <Route exact path="/authcheck" render={(props) => <Authcheck {...props} auth={auth} />} />

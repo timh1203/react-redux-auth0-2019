@@ -4,8 +4,7 @@ class Auth0 extends Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.props.auth.login()}>Login</button>
-        <button onClick={() => this.props.auth.logout()}>Logout</button>
+        Auth0 Page
       </div>
     )
   }

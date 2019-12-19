@@ -35,7 +35,7 @@ class Auth {
   }
 
   logout = () => {
-    localStorage.removeItem('expiresAt')
+    localStorage.removeItem('expires_at')
     localStorage.removeItem('access_token')
     localStorage.removeItem('id_token')
   }
