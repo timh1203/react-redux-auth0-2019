@@ -1,6 +1,7 @@
 // PACKAGE IMPORTS
 import React, { Component } from 'react'
 import { Router, Route, Switch, Redirect } from 'react-router'
+import { connect } from 'react-redux'
 
 // LOCAL IMPORTS
 import Header from './Header'
@@ -13,6 +14,7 @@ import Protected from '../auth/Protected'
 import Redirected from '../auth/Redirected'
 import history from './history'
 import auth0 from '../auth/auth'
+import * as ACTIONS from '../store/actions/actions'
 
 // Creates new auth object
 const auth = new auth0()
@@ -35,6 +37,18 @@ const ProtectedRoute = ({ component: Component, auth }) => (
 )
 
 class Routes extends Component {
+  componentDidMount() {
+    if (auth.isAuthenticated()) {
+      this.props.login_success()
+      auth.getProfile()
+      setTimeout(() => { this.props.add_profile(auth.userProfile) }, 2000)
+    }
+    else {
+      this.props.login_failure()
+      this.props.remove_profile()
+    }
+  }
+
   render() {
     return (
       <div>
@@ -59,4 +73,18 @@ class Routes extends Component {
   }
 }
 
-export default Routes
+function mapStateToProps(state) {
+  return {}
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    login_success: () => dispatch(ACTIONS.login_success()),
+    login_failure: () => dispatch(ACTIONS.login_failure()),
+    add_profile: (profile) => dispatch(ACTIONS.add_profile(profile)),
+    remove_profile: () => dispatch(ACTIONS.remove_profile()),
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Routes)

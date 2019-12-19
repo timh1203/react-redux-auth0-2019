@@ -8,6 +8,7 @@ class Auth0 extends Component {
       <div>
         Auth0 Page
         <button onClick={() => console.log(this.props.profile)}>Get Profile</button>
+        <button onClick={() => console.log(this.props.isAuthenticated)}>Get isAuthenticated</button>
       </div>
     )
   }
@@ -16,7 +17,8 @@ class Auth0 extends Component {
 
 function mapStateToProps(state) {
   return {
-    profile: state.authReducers.profile
+    profile: state.authReducers.profile,
+    isAuthenticated: state.authReducers.isAuthenticated
   }
 }
 
