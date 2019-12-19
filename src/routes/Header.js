@@ -21,15 +21,13 @@ class Header extends Component {
         <Link to="/protected" style={{ padding: '5px' }}>
           Protected Page
         </Link>
+        <Link to="/profile" style={{ padding: '5px' }}>
+          Profile Page
+        </Link>
         {this.props.isAuthenticated
           ? <button onClick={() => this.props.auth.logout()}>Logout</button>
           : <button onClick={() => this.props.auth.login()}>Login</button>
         }
-        {this.state.nums.map(num =>
-          <Link key={num.id} to={{ pathname: '/reactrouter/' + num.id }} style={{ padding: '5px' }}>
-            Reactrouter {num.id}
-          </Link>
-        )}
       </div>
     )
   }

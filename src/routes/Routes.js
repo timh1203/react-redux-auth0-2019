@@ -5,6 +5,7 @@ import { Router, Route, Switch, Redirect } from 'react-router'
 // LOCAL IMPORTS
 import Header from './Header'
 import Auth0 from '../containers/Auth0'
+import Profile from '../containers/Profile'
 import ReactRouter1 from '../functional/ReactRouter1'
 import Callback from '../auth/Callback'
 import Authcheck from '../auth/Authcheck'
@@ -45,6 +46,7 @@ class Routes extends Component {
               <Route exact path="/authcheck" render={(props) => <Authcheck {...props} auth={auth} />} />
               <Route path="/callback" render={(props) => { handleAuth(props); return <Callback /> }} />
               <ProtectedRoute path="/protected" auth={auth} component={Protected} />
+              <ProtectedRoute path="/profile" auth={auth} component={Profile} />
               <Route path="/redirect" component={Redirected} />
               <Route path="/reactrouter/:id" render={(props) => <ReactRouter1 {...props} />} />
               {/* <Route path="/reactrouter2" component={ReactRouter2} />
