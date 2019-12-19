@@ -14,11 +14,14 @@ class Header extends Component {
     return (
       <div>
         <Link to="/" style={{ padding: '5px' }}>
-          home
+          Home
+        </Link>
+        <Link to="/protected" style={{ padding: '5px' }}>
+          Protected Page
         </Link>
         {this.state.nums.map(num =>
           <Link key={num.id} to={{ pathname: '/reactrouter/' + num.id }} style={{ padding: '5px' }}>
-            reactrouter {num.id}
+            Reactrouter {num.id}
           </Link>
         )}
       </div>
