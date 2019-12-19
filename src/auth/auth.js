@@ -26,7 +26,7 @@ class Auth {
 
         this.getProfile()
 
-        setTimeout(() => { history.replace('/authcheck') }, 200)
+        setTimeout(() => { history.replace('/authcheck') }, 2000)
       }
       else {
         console.error(err)
@@ -71,6 +71,8 @@ class Auth {
     localStorage.removeItem('expires_at')
     localStorage.removeItem('access_token')
     localStorage.removeItem('id_token')
+
+    setTimeout(() => { history.replace('/authcheck') }, 2000)
   }
 }
 
